@@ -32,7 +32,7 @@
         <div class="btn-group btn-group-xs">
           <% table_actions(model, item).each do |action| %>
             <% html_options = action[:options] || {} %>
-            <%= link_to url_for(action[:url]), html_options.merge(class: 'btn btn-default btn-sm') do %>
+            <%= link_to url_for(action[:url]), html_options.merge(class: 'btn btn-default btn-sm ajax-modal') do %>
               <span class="glyphicon glyphicon-<%= action[:options] && action[:options][:glyphicon] || 'asterisk' %>"></span>
               <%= action[:message] %>
             <% end %>
