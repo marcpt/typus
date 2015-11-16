@@ -1,9 +1,10 @@
 <%
-  new_page_title = t('typus.resources.add.title', :resource => @model_to_relate.model_name.human.titleize)
+  new_page_title = @model_to_relate.model_name.human.titleize
   html_modal_class = "modal-from-dom-#{@model_to_relate.table_name}"
   modal_association = "#{@resource.model_name.to_s.downcase}_#{@model_to_relate.table_name}"
 %>
 
+<!-- has many template -->
 <div id="<%= html_modal_class %>" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -21,6 +22,12 @@
       </div>
 
       <script>
+
+        $('#modal-form-submit-<%= modal_association %> .modal-body').bind("DOMSubtreeModified", function(){
+          $('#modal-form-submit-<%= modal_association %> .modal-body').html('ImaginaryWeb!!!!');
+          alert('changed');
+        });
+
         $('#modal-form-submit-<%= modal_association %>').on('click', function(e){
           e.preventDefault();
 
